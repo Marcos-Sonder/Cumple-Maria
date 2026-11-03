@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#252525">
+
+    <title>Una Sorpresa Especial 🎂</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ESTILOS CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- THREE.JS -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+        }
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <main class="birthday-container">
+
+        <!-- FONDO ANIMADO -->
+        <div class="stars"></div>
+        <div class="sparkles"></div>
+
+        <!-- DESTELLOS DECORATIVOS -->
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+        <!-- PANTALLA DE BIENVENIDA -->
+        <section class="welcome-screen" id="welcome">
+
+            <div class="welcome-content">
+
+                <div class="decoration-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <span class="subtitle">
+                    ✨ UNA PEQUEÑA SORPRESA PARA TI ✨
+                </span>
+
+                <h1>
+                    Hoy es un día
+                    <span>mágico</span>
+                </h1>
+
+                <p>
+                    Hay momentos especiales que merecen
+                    celebrarse de una manera diferente...
+                </p>
+
+                <button id="startButton" onclick="window.location.href='sorpresa.html'">
+    Abrir mi sorpresa
+    <span>✧</span>
+</button>
+
+                <div class="bottom-decoration">
+                    <span>✦</span>
+                    <span>♡</span>
+                    <span>✦</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESCENA PRINCIPAL DEL CUMPLEAÑOS -->
+        <section class="birthday-scene" id="birthdayScene">
+
+            <div class="birthday-content">
+
+                <span class="subtitle">
+                    ✨ HOY ES TU DÍA ESPECIAL ✨
+                </span>
+
+                <h2>
+                    ¡Feliz
+                    <span>Cumpleaños!</span>
+                </h2>
+
+                <p class="cake-message">
+                    Que todos tus deseos se hagan realidad.
+                </p>
+
+
+                <!-- PASTEL 3D -->
+                <div class="cake-container" id="cakeContainer">
+
+                    <!-- THREE.JS RENDERIZARÁ AQUÍ -->
+
+                </div>
+
+
+                <!-- INSTRUCCIONES -->
+                <p class="instruction" id="instruction">
+                    🕯️ Prepara tus deseos y apaga las velitas
+                </p>
+
+                <div class="birthday-decoration">
+                    <span>✧</span>
+                    <span>♡</span>
+                    <span>✧</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    
+<script src="js/inicio.js"></script>
+</body>
+
+</html>

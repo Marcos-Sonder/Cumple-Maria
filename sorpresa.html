@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Una sorpresa especial</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Estilos de la sorpresa -->
+    <link rel="stylesheet" href="styles/sorpresa.css">
+
+    <!-- Three.js -->
+    
+</head>
+
+<body>
+
+   <!-- Música de fondo -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="audio/musica1.mp4" type="video/mp4">
+</audio>
+
+    <button id="musicButton" class="music-button" aria-label="Activar o pausar música">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Decoración del fondo -->
+    <div class="stars"></div>
+    <div class="sparkles"></div>
+    <div class="background-glow"></div>
+
+    <main class="surprise-container">
+
+        <!-- Fotografías -->
+        <section class="photo-gallery">
+
+            <div class="photo-frame photo-1">
+                <img src="imagenes/imagen01.png" alt="Fotografía especial 1">
+            </div>
+
+            <div class="photo-frame photo-2">
+                <img src="imagenes/imagen02.png" alt="Fotografía especial 2">
+            </div>
+
+            <div class="photo-frame photo-3">
+                <img src="imagenes/imagen03.png" alt="Fotografía especial 3">
+            </div>
+
+            <div class="photo-frame photo-4">
+                <img src="imagenes/imagen04.png" alt="Fotografía especial 4">
+            </div>
+
+        </section>
+
+        <!-- Carta principal -->
+        <section class="letter-section">
+
+            <div class="letter">
+
+                <div class="letter-decoration">
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <h1>¡Feliz cumpleaños!</h1>
+
+                <p class="letter-subtitle">
+                    Un pequeño detalle preparado especialmente para ti.
+                </p>
+
+                <div class="letter-divider">
+                    <span>✦</span>
+                </div>
+
+                <!-- AQUÍ PUEDES ESCRIBIR TU PROPIA CARTA -->
+                <div class="letter-message">
+                    <p>
+                    Hola Mari, como estas? espero que bien, hoy es un dia muy especial para ti, espero que lo estes celebrando con Amig@s y Familia, que te quieren y aprecian mucho, Hoy es tu Dia asi que disfrutalo, Sonrie y Sientete orgullosa de quien eres, se que este año a tenido muchos cambios, Tanto Buenos como Malos, pero lo importante es que siempre has salido adelante, y eso es algo que admiro mucho de ti, espero que este nuevo año de vida te traiga muchas cosas buenas, y que todos tus sueños se hagan realidad, Te deseo un Feliz Cumpleaños Querida Amiga :), Que la pases muy bien y que este año sea el mejor de tu vida.
+                    </p>
+
+                    <p>
+                        Mi regalo es esta Web que diseñe para ti, se quedara eternamente asi que puedes verla cuando quieras. Mi segundo regalo (muy yo sorry) son 3 textos Biblicos que espero te gusten: 
+                     </p> 
+<p>
+                       
+                        Josué 1:9 "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas." 
+                    </p>
+
+                <p>
+                     Isaías 41:10 "No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia."
+                </p>
+
+<p> Salmos 37:4 "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón."
+</p>
+
+<p>
+    NOTA: Mas abajo tienes que apretar las velitas (los fueguitos), y de la musica para ponerle stop, solo apreta el simbolo de sonido...
+</p>
+                </div>
+
+                <p class="letter-signature">
+                    Con mucho cariño ♡
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Video -->
+        <section class="video-section">
+
+            <h2>Un pequeño video... jijiji</h2>
+
+            <div class="video-frame">
+                <video controls playsinline>
+                    <source src="videos/videomari.mp4" type="video/mp4">
+                    Tu navegador no puede reproducir este video.
+                </video>
+            </div>
+
+        </section>
+
+        <!-- Pastel 3D -->
+        <section class="cake-section">
+
+            <h2>Y ahora... ¡pide un deseo!</h2>
+
+            <p class="cake-instruction">
+                Haz clic en las velitas para apagarlas.
+            </p>
+
+            <div id="cakeContainer"></div>
+
+            <p id="cakeMessage"></p>
+
+        </section>
+
+    </main>
+  
+
+
+
+
+<!-- JavaScript del pastel y efectos -->
+<script type="module" src="js/script.js"></script>
+
+
+</body>
+</html>

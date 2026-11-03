@@ -1,0 +1,712 @@
+
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #F4B6C9;
+    --pink-light: #FFE5EF;
+    --orange: #FF7A18;
+    --orange-light: #FFAB45;
+    --yellow: #FFD447;
+    --black: #252525;
+    --dark: #171419;
+    --white: #FFF9F5;
+    --gold: #D9B56D;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: var(--dark);
+    color: var(--white);
+}
+
+
+/* =========================================
+   2. CONTENEDOR PRINCIPAL
+========================================= */
+
+.birthday-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            #853d5c 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 85% 75%,
+            #8a431b 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #211b24,
+            #39232d,
+            #251c20
+        );
+}
+
+
+/* =========================================
+   3. ILUMINACIÓN DEL FONDO
+========================================= */
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+    animation: floatingLight 9s ease-in-out infinite alternate;
+}
+
+.glow-one {
+    background: var(--pink);
+    top: -180px;
+    left: -100px;
+}
+
+.glow-two {
+    background: var(--orange);
+    bottom: -200px;
+    right: -100px;
+    animation-delay: 2s;
+}
+
+.birthday-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 40%,
+            #ffb34708 50%,
+            transparent 60%
+        );
+
+    background-size: 200% 200%;
+    animation: lightMovement 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatingLight {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+
+    to {
+        transform: translate(100px, 80px) scale(1.3);
+    }
+}
+
+@keyframes lightMovement {
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
+}
+
+
+/* =========================================
+   4. ESTRELLAS Y PARTÍCULAS
+========================================= */
+
+.stars,
+.sparkles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    color: var(--yellow);
+    animation: twinkle 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 12px var(--yellow);
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.6) rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.3) rotate(45deg);
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px var(--gold),
+        0 0 20px var(--orange);
+
+    animation: rise 7s linear infinite;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   5. DESTELLOS DECORATIVOS
+========================================= */
+
+.decoration-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 25px;
+
+    color: var(--yellow);
+    font-size: 28px;
+
+    border: 1px solid #d9b56d77;
+    border-radius: 50%;
+
+    background: #ffffff0b;
+
+    box-shadow:
+        0 0 20px #d9b56d22,
+        inset 0 0 15px #ffffff0b;
+
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+
+/* =========================================
+   6. PANTALLAS PRINCIPALES
+========================================= */
+
+.welcome-screen,
+.birthday-scene {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+    text-align: center;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index: 2;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 750px;
+
+    transform: translate(
+        calc(var(--mouse-x, 0) * -8px),
+        calc(var(--mouse-y, 0) * -8px)
+    );
+
+    transition: transform 0.2s ease-out;
+}
+
+
+/* =========================================
+   7. TEXTOS DE BIENVENIDA
+========================================= */
+
+.subtitle {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.welcome-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(55px, 9vw, 105px);
+    font-weight: 500;
+
+    line-height: 1.05;
+
+    margin: 25px 0;
+
+    color: var(--white);
+
+    animation: titleEntrance 1.5s ease;
+}
+
+.welcome-content h1 span {
+    display: block;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 15px #f4b6c944,
+        0 0 40px #f4b6c922;
+}
+
+@keyframes titleEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-content p {
+    max-width: 520px;
+
+    margin: 0 auto 35px;
+
+    color: #e8d5d9;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   8. BOTÓN DE BIENVENIDA
+========================================= */
+
+button {
+    position: relative;
+
+    padding: 16px 35px;
+
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+
+    background: linear-gradient(
+        120deg,
+        var(--pink),
+        var(--gold)
+    );
+
+    color: var(--black);
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px #d9b56d33,
+        0 0 40px #ff7a1811;
+
+    transition: all 0.35s ease;
+}
+
+button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff88,
+        transparent
+    );
+
+    transition: left 0.6s ease;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 0 25px #d9b56d88,
+        0 0 45px #ff7a1888;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button span {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+
+/* =========================================
+   9. DECORACIÓN INFERIOR
+========================================= */
+
+.bottom-decoration,
+.birthday-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+    margin-top: 45px;
+
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.bottom-decoration span:nth-child(2),
+.birthday-decoration span:nth-child(2) {
+    color: var(--pink);
+    font-size: 26px;
+    animation: heartBeat 2s infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================
+   10. TRANSICIÓN ENTRE PANTALLAS
+========================================= */
+
+.welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.2);
+    pointer-events: none;
+}
+
+.birthday-scene {
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.85);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease,
+        visibility 1.2s;
+}
+
+.birthday-scene.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* =========================================
+   11. ESCENA DEL CUMPLEAÑOS
+========================================= */
+
+.birthday-content {
+    width: 100%;
+    max-width: 850px;
+    animation: birthdayEntrance 1.5s ease;
+}
+
+@keyframes birthdayEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.birthday-scene h2 {
+    margin-top: 20px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(45px, 7vw, 85px);
+    font-weight: 600;
+
+    line-height: 1.1;
+
+    color: var(--white);
+
+    text-shadow:
+        0 0 20px #ff7a1866;
+}
+
+.birthday-scene h2 span {
+    display: block;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 15px #f4b6c966,
+        0 0 35px #ff7a1844;
+}
+
+.cake-message {
+    margin-top: 15px;
+
+    color: var(--gold);
+
+    font-size: 14px;
+    font-weight: 300;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   12. PASTEL 3D
+========================================= */
+
+.cake-container {
+    position: relative;
+
+    width: min(90vw, 550px);
+    height: 360px;
+
+    margin: 15px auto;
+
+    filter: drop-shadow(
+        0 15px 30px #ff7a1833
+    );
+}
+
+.cake-container canvas {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: grab;
+}
+
+.cake-container canvas:active {
+    cursor: grabbing;
+}
+
+
+/* =========================================
+   13. INSTRUCCIONES
+========================================= */
+
+.instruction {
+    margin-top: 5px;
+
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 300;
+
+    letter-spacing: 1px;
+
+    animation: instructionGlow 3s ease-in-out infinite;
+}
+
+@keyframes instructionGlow {
+    0%, 100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   14. CONFETI
+========================================= */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 9px;
+    height: 14px;
+
+    border-radius: 2px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(900deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   15. RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .welcome-content h1 {
+        font-size: 65px;
+    }
+
+    .birthday-scene h2 {
+        font-size: 55px;
+    }
+
+    .cake-container {
+        width: 95vw;
+        height: 320px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .welcome-content p {
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .welcome-screen,
+    .birthday-scene {
+        padding: 18px;
+    }
+
+    .welcome-content h1 {
+        font-size: 53px;
+    }
+
+    .birthday-scene h2 {
+        font-size: 45px;
+    }
+
+    .cake-container {
+        height: 280px;
+    }
+
+    .cake-message {
+        font-size: 12px;
+    }
+
+    .instruction {
+        font-size: 11px;
+    }
+
+    button {
+        padding: 14px 28px;
+    }
+
+}
+
+
+/* =========================================
+   16. ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
